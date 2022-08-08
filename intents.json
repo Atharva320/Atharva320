@@ -1,0 +1,588 @@
+{
+
+    "intents":[
+
+        {
+
+            "tag":"greeting",
+            "patterns":["hello","hii","hey","wake up","jarvis","dad is home","hello buddy"
+
+            ],
+            "responses":["Hello Sir","Always there for you","Hello","Here's Your Assistant","How May I Help.. ","What can i do for you"
+
+            ]
+
+        },
+
+        {
+
+            "tag":"bye",
+            "patterns":["bye","see you jarvis","see you later","sleep","you can rest now","exit","goodbye","good bye","rest","bye jarvis","ok jarvis bye"
+
+            ],
+            "responses":["Bye Sir","See You Later","Going to get some rest","Goodbye","See You Again","Bye."
+
+            ]
+
+        },
+
+        {
+
+            "tag":"name",
+            "patterns":["what is your name","can you tell me your name","whats your name","may i have your name","how may i address you","what can i call you","what was your name again","You are?"
+
+            ],
+            "responses":["Jarvis","My name is Jarvis","You can call me Jarvis"
+
+            ]
+
+        },
+
+        {
+
+            "tag":"identity",
+            "patterns":["who are you","what are you","tell me about yourself","may i know who you are"
+
+            ],
+            "responses":["I am Jarvis a virtual A.I assistant","An A.I assistant named as Jarvis"
+
+            ]
+
+        },
+
+        {
+
+            "tag":"you are",
+            "patterns":["you are jarvis right?","you are jarvis","can i call you jarvis","are you jarvis"
+
+            ],
+            "responses":["Yes I am Jarvis a virtual A.I assistant","Yes you can call me Jarvis","Yes you are right","Yeah exactly..I am Jarvis"
+
+            ]
+
+        },
+
+        {
+
+            "tag":"time",
+            "patterns":["whats the time","time","tell me the time jarvis","what time is it","can you tell the time","what is the time"
+
+            ],
+            "responses":["time"
+
+            ]
+
+        },
+
+        {
+
+            "tag":"date",
+            "patterns":["whats the date","date","tell me the date jarvis","todays date","can you tell the date","what is the date"
+
+            ],
+            "responses":["date"
+
+            ]
+
+        },
+
+        {
+
+            "tag":"calendar",
+            "patterns":["show me the calendar","calendar","can you show me the calendar","calendar please"
+
+            ],
+            "responses":["calendar"
+
+            ]
+
+        },
+
+        {
+
+            "tag":"who",
+            "patterns":["what is my name","who am i","who i am","can you tell my name","my name is?","what will you call me","i am?"
+
+            ],
+            "responses":["who"
+
+            ]
+
+        },
+
+        {
+
+            "tag":"year",
+            "patterns":["whats the year","year","tell me the year jarvis","can you tell the year","what is the year"
+
+            ],
+            "responses":["year"
+
+            ]
+
+        },
+
+        {
+
+            "tag":"month",
+            "patterns":["whats the month","month","tell me the month jarvis","can you tell the month","what is the month"
+
+            ],
+            "responses":["month"
+
+            ]
+
+        },
+
+        {
+
+            "tag":"day",
+            "patterns":["whats the day","day","tell me the day jarvis","todays day","can you tell the day","what is the day"
+
+            ],
+            "responses":["date"
+
+            ]
+
+        },
+
+        {
+
+            "tag":"screenshot",
+            "patterns":["screenshot","ss","can you take a screenshot jarvis","can you take a ss jarvis","take a screenshot jarvis","take a pic of screen"
+
+            ],
+            "responses":["screenshot"
+
+            ]
+
+        },
+
+        {
+
+            "tag":"history",
+            "patterns":["command history","show me command history","can you show me command history","show the command history","command history","list the commands","list the command till this date"
+
+            ],
+            "responses":["history"
+
+            ]
+
+        },
+
+        {
+
+            "tag":"study",
+            "patterns":["study","lets do some study jarvis","lets revise","lets get to work buddy","gotta study","lets start then","okay lets do it","I would like to study","initiate study mode","study","Study"
+
+            ],
+            "responses":["study"
+
+            ]
+
+        },
+
+        {
+
+            "tag":"light on",
+            "patterns":["on","turn light on","turn the light on","jarvis turn the led on","light on","led on","jarvis turn the light on","light suru kar","jarvis light suru kar","jarvis light on kar","light suru","light Shuru kar","jarvis light shuru kar","light Shuru","light shuru"
+
+            ],
+            "responses":["light on"
+
+            ]
+
+        },
+
+        {
+
+            "tag":"light off",
+            "patterns":["off","turn light off","turn the light off","jarvis turn the led off","light off","led off","jarvis turn the light off","jarvis light off kar","jarvis light banda kar","light banda","light band","jarvis light banda kar","light banda kar"
+
+            ],
+            "responses":["light off"
+
+            ]
+
+        },
+
+        {
+
+            "tag":"clear",
+            "patterns":["clear","clear the screen jarvis","make the screen clear","get me a new screen","remove the stuff from screen"
+
+            ],
+            "responses":["clear"
+
+            ]
+
+        },
+
+        {
+
+            "tag":"yestarday",
+            "patterns":["do you remember what i was studying yesterday","can you show me what was i studying yesterday","study of yesterday","yesterdays study","yesterday study","study yesterday","what were we studying yesterday","yesteray","what i have studied yesterday","can you show me what was I studying yesterday","what I have studied yesterday","do you remember what I was studying yesterday"
+            ],
+            "responses":["yestarday"
+
+            ]
+
+        },
+
+        {
+
+            "tag":"remember",
+            "patterns":["study history","show me study history","can you show me my preperation","show the study history","show me all my preperation","list my study history","list the preperation till this date"
+
+            ],
+            "responses":["remember"
+
+            ]
+
+        }
+
+        ,
+
+        {
+
+            "tag":"System_On",
+            "patterns":["initiate the system","Initiate the system","initiate system","Initiate the system","turn on the setup","turn on setup","can you please turn on the setup","setup turn on","can you please initiate the system","turn on the system","system turn on","can you please turn on the system","can you turn on the system","activate the setup","activate the setup","setup activate","activate system","can you activate the system","can you please activate the setup"
+
+            ],
+            "responses":["System_On"
+
+            ]
+
+        }
+
+        ,
+
+        {
+
+            "tag":"System_Off",
+            "patterns":["terminate the system","Terminate the system","terminate system","Terminate the system","turn off the setup","turn off setup","can you please turn off the setup","setup turn off","can you please terminate the system","turn off the system","system turn off","can you please turn off the system","can you turn off the system","deactivate the setup","deactivate the setup","setup deactivate","deactivate system","can you deactivate the system","can you please deactivate the setup"
+
+            ],
+            "responses":["System_Off"
+
+            ]
+
+        }
+        ,
+
+        {
+
+            "tag":"Google",
+            "patterns":["can you please open the google","open google","google","initaite google","launch google","can you launch google","hey jarvis can please open the google for me","jarvis start google","hey jarvis initiate google","hi jarvis launch google","activate the google jarvis","jarvis can you please activate the google","switch on the google","turn on the google","google start","google launch"
+            ],
+            "responses":["Google"
+
+            ]
+
+        }
+        ,
+
+        {
+
+            "tag":"Controls_GUI",
+            "patterns":["initiate the controls","Initiate the control","initiate app","Initiate the control app","turn on the control","can you show me the control","can you please turn on the control","launch the control","can you please initiate the controls","activate the controls","control turn on","can you please show me the system","can you show the app","activate the controls","controls activate","activate control","can you activate the control","can you please activate the control"
+
+            ],
+            "responses":["Controls_GUI"
+
+            ]
+
+        }
+
+        ,
+
+        {
+
+            "tag":"Minimize_Window",
+            "patterns":["jarvis minimize all the windows","hide all the tabs","hide","hide the tabs","hide the windows","minimize all the tabs","jarvis can you please hide all the tabs","tabs hide","window hide","windows hide"
+            ],
+            "responses":["Minimize_Window"
+
+            ]
+
+        }
+
+        ,
+
+        {
+
+            "tag":"Switch_Tab",
+            "patterns":["switch the tab","tab switch","switch the window","hey jarvis switch the window","shift to another window","shift to another tab","Jarvis can you please switch the tab","jarvis switch the window","jarvis shift the window to other","jarvis switch the window to another","shift window","shift tab","window switch"
+            ],
+            "responses":["Switch_Tab"
+
+            ]
+
+        }
+
+        ,
+
+        {
+
+            "tag":"Maximize_Window",
+            "patterns":["jarvis maximize all the windows","show all the tabs","reveal","reveal the tabs","reveal the windows","maximize all the tabs","jarvis can you please maximize all the tabs","tabs maximize","window show","windows reveal"
+            ],
+            "responses":["Maximize_Window"
+
+            ]
+
+        }
+
+        
+
+        
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
