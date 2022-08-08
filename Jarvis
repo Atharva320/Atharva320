@@ -63,7 +63,6 @@ def Main():
 
     
     sentence = Listen()
-
     Yes = ['what is meant by','what is mean by','means','meant','who is','who is the','how to do','how to cook','can you tell something about','can you tell me about','tell me something about','tell me about','what does mean','why does mean','who does','Google','google search','search','search about','search this','search that','what to do if','what to do','how to make','what should i do','weather','whats the weather','meaning','meaning of','can you tell me who is','how the','whats in the','what is the','can you explain me the','explain the','explain','can you explain','explain me the','search for']
     a = process.extract(sentence,Yes,limit = 1)
     a1 = a[0][1]
@@ -76,6 +75,7 @@ def Main():
 
         if sentence == "sleep" or sentence == "you can sleep now" :
             Jarvis_offline()
+
             f = open("/home/atharva/Downloads/Jarvis/Users.txt", "r+") 
             f.seek(0) 
             f.truncate() 
@@ -172,6 +172,9 @@ def Main():
                         NonInputExecution(reply)
 
                     elif "Maximize_Window"in reply:
+                        NonInputExecution(reply)
+
+                    elif "Todo_List" in reply:
                         NonInputExecution(reply)
                     
                     else:

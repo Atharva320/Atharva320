@@ -185,7 +185,6 @@ class Ui_To_Do_List(object):
                 self.retranslateUi(To_Do_List)
                 QtCore.QMetaObject.connectSlotsByName(To_Do_List)
                 self.grab_all()
-
         def retranslateUi(self, To_Do_List):
                 _translate = QtCore.QCoreApplication.translate
                 To_Do_List.setWindowTitle(_translate("To_Do_List", "MainWindow"))
