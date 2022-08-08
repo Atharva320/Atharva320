@@ -13,28 +13,75 @@ from Notification import Item_From_TodoList_Added_In_Done_File
 import time
 from datetime import date
 class Ui_To_Do_List(object):
+
+        def grab_all(self):
+                file=open('/home/atharva/Downloads/Jarvis/todo_store.txt','r')
+                L = file.readlines()
+                b = []
+                for line in L:
+                        length = len(line)
+                        item = line[22:length-1]
+                        b.append(item)
+                for items in b:
+                        self.listWidget.addItem(f"{items}\n")
+
+
+
         def add_item(self):
                 item = self.lineEdit.text()
                 clicked = self.listWidget.count()
                 clicked1 = clicked+1
                 self.listWidget.addItem(f"{clicked1}. {item}\n")
                 self.lineEdit.setText("")
+                t = time.strftime("%I:%M %p")
+                current_date=date.today()
+                file=open('/home/atharva/Downloads/Jarvis/todo_store.txt','a')
+                file.write(f'{clicked1} {current_date} {t} {clicked1}.{item}\n')
+
 
         def delete_selected(self):
                 clicked = self.listWidget.currentRow()
+                clicked1 = clicked+1
                 self.listWidget.takeItem(clicked)
+                with open('/home/atharva/Downloads/Jarvis/todo_store.txt', 'r') as fr:
+                        lines = fr.readlines()
+                ptr = 1
+                with open('/home/atharva/Downloads/Jarvis/todo_store.txt', 'w') as fw:
+                        for line in lines:
+                        
+                                # we want to remove 5th line
+                                if ptr != clicked1:
+                                        fw.write(line)
+                                        ptr += 1
+
+
 
         def clear_all(self):
                 self.listWidget.clear()
+                f = open("/home/atharva/Downloads/Jarvis/todo_store.txt", "r+") 
+                f.seek(0) 
+                f.truncate() 
         def Done(self):
                 Item = self.listWidget.currentItem().text()
                 clicked = self.listWidget.currentRow()
+                clicked1 = clicked+1
                 self.listWidget.takeItem(clicked)
                 file=open('/home/atharva/Downloads/Jarvis/done.txt','a')
                 t = time.strftime("%I:%M %p")
                 current_date=date.today()
                 file.write(f'{current_date} {t} {Item}\n')
                 Item_From_TodoList_Added_In_Done_File(Item)
+                file.close()
+                with open('/home/atharva/Downloads/Jarvis/todo_store.txt', 'r') as fr:
+                        lines = fr.readlines()
+                ptr = 1
+                with open('/home/atharva/Downloads/Jarvis/todo_store.txt', 'w') as fw:
+                        for line in lines:
+                                if ptr != clicked1:
+                                        fw.write(line)
+                                        ptr += 1
+
+
         def setupUi(self, To_Do_List):
                 To_Do_List.setObjectName("To_Do_List")
                 To_Do_List.resize(681, 683)
@@ -137,6 +184,7 @@ class Ui_To_Do_List(object):
 
                 self.retranslateUi(To_Do_List)
                 QtCore.QMetaObject.connectSlotsByName(To_Do_List)
+                self.grab_all()
 
         def retranslateUi(self, To_Do_List):
                 _translate = QtCore.QCoreApplication.translate
