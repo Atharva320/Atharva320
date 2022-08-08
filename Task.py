@@ -253,11 +253,28 @@ def Switch_Tab():
     os.system("xte 'keyup Alt_L'")
 
 
+def todo_next_day():
+    date = str(datetime.date.today())
+    file=open('/home/atharva/Downloads/Jarvis/todo_store.txt','r')
+    L = file.readlines()
+    for lines in L:
+        a = lines[2:12]
+        if a!=date:
+            f = open("/home/atharva/Downloads/Jarvis/todo_store.txt", "r+") 
+            f.seek(0) 
+            f.truncate()
+            break
+        
+
+
 
 
 def Maximize_Window():
     os.system("xte 'keydown Control_L' 'keydown Alt_L' 'key d' 'keyup Control_L' 'keyup Alt_L'")
 
+
+def Todo_List():
+    os.system("python /home/atharva/Downloads/Jarvis/todo.py")
 
 
 def NonInputExecution(query):
@@ -330,7 +347,10 @@ def NonInputExecution(query):
     elif "Maximize_Window"in query:
         Maximize_Window()
 
-    
 
+    elif "Todo_List" in query:
+        Todo_List()
+
+    
 
 

@@ -332,6 +332,18 @@
             ]
 
         }
+        ,
+
+        {
+
+            "tag":"Todo_List",
+            "patterns":["can you please open the to do list","open to do list","to do list","initaite to do list","jarvis get me the to do list","lets plan my day","lets set some goals","jarvis can you launch to do list"
+            ],
+            "responses":["Todo_List"
+
+            ]
+
+        }
 
         
 

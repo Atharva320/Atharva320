@@ -1,3 +1,4 @@
+from logging import exception
 import speech_recognition as sr
 import time
 from datetime import date
@@ -32,7 +33,8 @@ def Listen():
         file=open('/home/atharva/Downloads/Jarvis/history.txt','a')
         file.write(f'{current_date} {t} {query}\n')
         file.close()
-    except:
+    except exception as e:
+        print(e)
         print("Try again")
         with sr.Microphone() as source:
             GPIO.setwarnings(False)
@@ -55,5 +57,3 @@ def Listen():
         file.close()
     query = str(query)
     return query.lower()
-
-
