@@ -7,18 +7,19 @@ from NeuralNetwork import bag_of_words,tokenize
 from getpass import getpass
 import sys
 import os
-import Study
+from Study import Study
 import os
 import subprocess
 import speech_recognition as sr
 import os
-from Notification import Jarvis_online
-from Notification import Jarvis_offline
+from Notifications.Notification import Jarvis_online
+from Notifications.Notification import Jarvis_offline
 from thefuzz import fuzz, process
 from Task import Search
 import gpiozero
 import RPi._GPIO as GPIO
-
+import repackage
+repackage.up()
 
 device = torch.device('cude' if torch.cuda.is_available() else 'cpu')
 
@@ -55,7 +56,7 @@ model.eval()
 
 Name = "Jarvis"
 
-from Listen import Listen
+from Listen.Listen import Listen
 from Task import NonInputExecution
 from Task import Start
 def Main():
@@ -76,10 +77,10 @@ def Main():
         if sentence == "sleep" or sentence == "you can sleep now" :
             Jarvis_offline()
 
-            f = open("/home/atharva/Downloads/Jarvis/Users.txt", "r+") 
+            f = open("/home/atharva/Downloads/Jarvis/DataBase/Users.txt", "r+") 
             f.seek(0) 
             f.truncate() 
-            f1 = open("/home/atharva/Downloads/Jarvis/current_user.txt", "r+") 
+            f1 = open("/home/atharva/Downloads/Jarvis/DataBase/current_user.txt", "r+") 
             f1.seek(0) 
             f1.truncate()
             exit()

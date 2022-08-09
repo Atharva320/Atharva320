@@ -1,4 +1,6 @@
 import datetime
+import repackage
+repackage.up()
 import calendar
 from datetime import date
 from getpass import getpass
@@ -6,21 +8,23 @@ import time
 import os
 import gpiozero
 import RPi._GPIO as GPIO
-from Study import Study
-from Study import Yestarday
-from Study import Remember
+from Study.Study import Study
+from Study.Study import Yestarday
+from Study.Study import Remember
 from prettytable import PrettyTable
 import webbrowser
-from Listen import Listen
-from Listen_passw import Listen_passw
-from Listen_name import Listen_name
-from Notification import Jarvis_Time
-from Notification import Jarvis_Date
-from Notification import Jarvis_Right_Password
-from Notification import Jarvis_Wrong_Password
-from Notification import *
+from Listen.Listen import Listen
+from Listen.Listen_passw import Listen_passw
+from Listen.Listen_name import Listen_name
+from Notifications.Notification import Jarvis_Time
+from Notifications.Notification import Jarvis_Date
+from Notifications.Notification import Jarvis_Right_Password
+from Notifications.Notification import Jarvis_Wrong_Password
+from Notifications.Notification import *
 import wikipedia as googlescrap
 import pywhatkit
+from subprocess import call
+
 
 def Time():
     t = time.strftime("%I:%M %p")
@@ -55,12 +59,12 @@ def Screenshot():
     os.system("gnome-screenshot")
 
 def Notauth(name):
-    file1=open('/home/atharva/Downloads/Jarvis/current_user.txt','w')
+    file1=open('/home/atharva/Downloads/Jarvis/DataBase/current_user.txt','w')
     file1.write(name)
     file1.close()
 
 def Entry(name):
-    file2=open('/home/atharva/Downloads/Jarvis/All_users.txt','a')
+    file2=open('/home/atharva/Downloads/Jarvis/DataBase/All_users.txt','a')
     current_date=date.today()
     t = time.localtime()
     current_time = time.strftime("%H:%M:%S", t)
@@ -73,7 +77,7 @@ def Start():
     if passw == password:
         Jarvis_Right_Password()
         print("Welcome Sir \n \n")
-        file=open('/home/atharva/Downloads/Jarvis/Users.txt','w')
+        file=open('/home/atharva/Downloads/Jarvis/DataBase/Users.txt','w')
         file.write('1')
         file.close()
 
@@ -86,21 +90,21 @@ def Start():
             name1 = Listen_name()
             Notauth(name1)
             Entry(name1)
-            file=open('/home/atharva/Downloads/Jarvis/Users.txt','w')
+            file=open('/home/atharva/Downloads/Jarvis/DataBase/Users.txt','w')
             file.write('2')
             file.close()
             exit()
         
         elif passw1==password:
             Jarvis_Right_Password()
-            file=open('/home/atharva/Downloads/Jarvis/Users.txt','w')
+            file=open('/home/atharva/Downloads/Jarvis/DataBase/Users.txt','w')
             file.write('1')
             file.close()
             print("Welcome Sir...")
 
 
 def Who():
-    file=open('/home/atharva/Downloads/Jarvis/Users.txt','r')
+    file=open('/home/atharva/Downloads/Jarvis/DataBase/Users.txt','r')
     T = file.read(1)
     
     if T == '1' :
@@ -111,7 +115,7 @@ def Who():
 
 
 def Hsitory():
-    file=open('/home/atharva/Downloads/Jarvis/history.txt','r')
+    file=open('/home/atharva/Downloads/Jarvis/DataBase/history.txt','r')
     L = file.readlines()
     b = []
     for line in L:
@@ -236,7 +240,9 @@ def Arc_red_off():
 
 
 def Controls_GUI():
-    os.system("python /home/atharva/Downloads/Jarvis/Control.py")
+    from subprocess import call
+    call(["python", "/home/atharva/Downloads/Jarvis/All GUI apps/Control.py"])
+
 
 
 
@@ -255,12 +261,12 @@ def Switch_Tab():
 
 def todo_next_day():
     date = str(datetime.date.today())
-    file=open('/home/atharva/Downloads/Jarvis/todo_store.txt','r')
+    file=open('/home/atharva/Downloads/Jarvis/DataBase/todo_store.txt','r')
     L = file.readlines()
     for lines in L:
         a = lines[2:12]
         if a!=date:
-            f = open("/home/atharva/Downloads/Jarvis/todo_store.txt", "r+") 
+            f = open("/home/atharva/Downloads/Jarvis/DataBase/todo_store.txt", "r+") 
             f.seek(0) 
             f.truncate()
             break
@@ -274,7 +280,9 @@ def Maximize_Window():
 
 
 def Todo_List():
-    os.system("python /home/atharva/Downloads/Jarvis/todo.py")
+    from subprocess import call
+    call(["python", "/home/atharva/Downloads/Jarvis/All GUI apps/todo.py"])
+
 
 
 def NonInputExecution(query):
