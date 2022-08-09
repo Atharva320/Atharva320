@@ -161,7 +161,7 @@
         {
 
             "tag":"history",
-            "patterns":["command history","show me command history","can you show me command history","show the command history","command history","list the commands","list the command till this date"
+            "patterns":["command history","show me command history","can you show me command history","show the command history","command history","list the commands","list the command till this date","can you show me the command history","command history","command History"
 
             ],
             "responses":["history"
@@ -232,7 +232,7 @@
         {
 
             "tag":"remember",
-            "patterns":["study history","show me study history","can you show me my preperation","show the study history","show me all my preperation","list my study history","list the preperation till this date"
+            "patterns":["study history","show me study history","can you show me my preperation","show the study history","show me all my preperation","list my study history","list the preperation till this date","can you show me the study hiastory","can you show me the study History"
 
             ],
             "responses":["remember"

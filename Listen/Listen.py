@@ -1,4 +1,5 @@
 from logging import exception
+# from xml.etree.ElementTree import TreeBuilder
 import speech_recognition as sr
 import time
 from datetime import date
@@ -26,15 +27,16 @@ def Listen():
         GPIO.setup(22, GPIO.OUT)
         GPIO.output(22, False)
         print("Recognizing....")
-        query = r.recognize_google(audio)
+        query = r.recognize_google(audio, language = 'en-IN')
         print(f"You Said : {query}")
+        if "None" in query:
+            pass
         current_date=date.today()
         t = time.strftime("%I:%M %p")
-        file=open('/home/atharva/Downloads/Jarvis/history.txt','a')
+        file=open('/home/atharva/Downloads/Jarvis/DataBase/history.txt','a')
         file.write(f'{current_date} {t} {query}\n')
         file.close()
-    except exception as e:
-        print(e)
+    except:
         print("Try again")
         with sr.Microphone() as source:
             GPIO.setwarnings(False)
@@ -48,11 +50,13 @@ def Listen():
         GPIO.setup(22, GPIO.OUT)
         GPIO.output(22, False)
         print("Recognizing....")
-        query = r.recognize_google(audio)
+        query = r.recognize_google(audio, language = 'en-IN')
         print(f"You Said : {query}")
+        if "None" in query:
+            pass
         current_date=date.today()
         t = time.strftime("%I:%M %p")
-        file=open('/home/atharva/Downloads/Jarvis/history.txt','a')
+        file=open('/home/atharva/Downloads/Jarvis/DataBase/history.txt','a')
         file.write(f'{current_date} {t} Unable to recognize..\n')
         file.close()
     query = str(query)

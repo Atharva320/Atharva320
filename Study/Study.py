@@ -168,7 +168,7 @@ def MWR():
 def Study():
     day = date.today().strftime("%A")
     date1 = datetime.date.today()
-    f = open("/home/atharva/Downloads/Jarvis/Study_Related.txt", "a")
+    f = open("/home/atharva/Downloads/Jarvis/DataBase/Study_Related.txt", "a")
     print("Which subject you would like to study today : ")
     s = input()
     s = s.lower()
@@ -199,7 +199,7 @@ def Yestarday():
     yesterday = str(yesterday)
     date1 = datetime.date.today()
     date1 = str(date1)
-    f = open("/home/atharva/Downloads/Jarvis/Study_Related.txt", "r")
+    f = open("/home/atharva/Downloads/Jarvis/DataBase/Study_Related.txt", "r")
     Lines = f.readlines()
     global b
     b = []
@@ -217,7 +217,7 @@ def Yestarday():
 
 
 def Remember():
-    f = open("/home/atharva/Downloads/Jarvis/Study_Related.txt", "r")
+    f = open("/home/atharva/Downloads/Jarvis/DataBase/Study_Related.txt", "r")
     Lines = f.readlines()
     b = []
     for line in Lines:
