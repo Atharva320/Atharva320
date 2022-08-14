@@ -21,6 +21,7 @@ import RPi._GPIO as GPIO
 import repackage
 repackage.up()
 
+
 device = torch.device('cude' if torch.cuda.is_available() else 'cpu')
 
 with open("/home/atharva/Downloads/Jarvis/intents.json",'r') as json_data:
@@ -60,152 +61,192 @@ from Listen.Listen import Listen
 from Task import NonInputExecution
 from Task import Start
 def Main():
-
-
     
-    sentence = Listen()
-    Yes = ['what is meant by','what is mean by','means','meant','who is','who is the','how to do','how to cook','can you tell something about','can you tell me about','tell me something about','tell me about','what does mean','why does mean','who does','Google','google search','search','search about','search this','search that','what to do if','what to do','how to make','what should i do','weather','whats the weather','meaning','meaning of','can you tell me who is','how the','whats in the','what is the','can you explain me the','explain the','explain','can you explain','explain me the','search for']
-    a = process.extract(sentence,Yes,limit = 1)
-    a1 = a[0][1]
-    if a1 >=90:
-        Search(sentence)
-        
-    else:
+    while True:
+        r = sr.Recognizer()
+
+        with sr.Microphone() as source:
+            GPIO.setwarnings(False)
+            GPIO.setmode(GPIO.BCM)
+            GPIO.setup(22, GPIO.OUT)
+            GPIO.output(22, True)
+            print("Listening....")
+            r.adjust_for_ambient_noise(source)
+            audio = r.listen(source)
+
+        try:
+            GPIO.setwarnings(False)
+            GPIO.setmode(GPIO.BCM)
+            GPIO.setup(22, GPIO.OUT)
+            GPIO.output(22, False)
+            print("Recognizing....")
+            sentence= r.recognize_google(audio)
+            if sentence is not None:
+                print(f"You Said : {sentence}")
+                Yes = ['what is meant by','what is mean by','means','meant','who is','who is the','how to do','how to cook','can you tell something about','can you tell me about','tell me something about','tell me about','what does mean','why does mean','who does','search','search about','search this','search that','what to do if','what to do','how to make','what should i do','meaning','meaning of','can you tell me who is','how the','whats in the','what is the','can you explain me the','explain the','explain','can you explain','explain me the','search for','when is the','Define','define']
+                a = process.extract(sentence,Yes,limit = 1)
+                a1 = a[0][1]
+                if a1 >=90:
+                    Search(sentence)
+
+               
+            if sentence == "sleep" or sentence == "you can sleep now" :
+                Jarvis_offline()
+                GPIO.setwarnings(False)
+                GPIO.setmode(GPIO.BCM)
+                GPIO.setup(22, GPIO.OUT)
+                GPIO.output(22, False)
+                GPIO.setwarnings(False)
+                GPIO.setmode(GPIO.BCM)
+                GPIO.setup(22, GPIO.OUT)
+                GPIO.output(27, False)
+                f = open("/home/atharva/Downloads/Jarvis/DataBase/Users.txt", "r+") 
+                f.seek(0) 
+                f.truncate() 
+                f1 = open("/home/atharva/Downloads/Jarvis/DataBase/current_user.txt", "r+") 
+                f1.seek(0) 
+                f1.truncate()
+                break
+                
+            else:
 
 
+                    sentence = tokenize(sentence)
+                    X = bag_of_words(sentence,all_words)
+                    X = X.reshape(1,X.shape[0])
+                    X = torch.from_numpy(X).to(device)
 
-        if sentence == "sleep" or sentence == "you can sleep now" :
-            Jarvis_offline()
+                    output = model(X)
 
-            f = open("/home/atharva/Downloads/Jarvis/DataBase/Users.txt", "r+") 
-            f.seek(0) 
-            f.truncate() 
-            f1 = open("/home/atharva/Downloads/Jarvis/DataBase/current_user.txt", "r+") 
-            f1.seek(0) 
-            f1.truncate()
-            exit()
+                    _ , predicted = torch.max(output,dim=1)
 
+                    tag = tags[predicted.item()]
 
-        sentence = tokenize(sentence)
-        X = bag_of_words(sentence,all_words)
-        X = X.reshape(1,X.shape[0])
-        X = torch.from_numpy(X).to(device)
-
-        output = model(X)
-
-        _ , predicted = torch.max(output,dim=1)
-
-        tag = tags[predicted.item()]
-
-        probs = torch.softmax(output,dim=1)
-        prob = probs[0][predicted.item()]
+                    probs = torch.softmax(output,dim=1)
+                    prob = probs[0][predicted.item()]
 
 
-        if prob.item() > 0.75:
-            for intent in intents['intents']:
-                if tag == intent["tag"]:
-                    reply = random.choice(intent["responses"])
+                    if prob.item() > 0.75:
+                        for intent in intents['intents']:
+                            if tag == intent["tag"]:
+                                reply = random.choice(intent["responses"])
 
-                    if "time" in reply:
-                        NonInputExecution(reply)
+                                if "time" in reply:
+                                    NonInputExecution(reply)
 
-                    elif "date" in reply:
-                        NonInputExecution(reply)
+                                elif "date" in reply:
+                                    NonInputExecution(reply)
 
-                    elif "calendar" in reply:
-                        NonInputExecution(reply)
+                                elif "calendar" in reply:
+                                    NonInputExecution(reply)
 
-                    elif "year" in reply:
-                        NonInputExecution(reply)
+                                elif "year" in reply:
+                                    NonInputExecution(reply)
 
-                    elif "month" in reply:
-                        NonInputExecution(reply)
+                                elif "month" in reply:
+                                    NonInputExecution(reply)
 
-                    elif "day" in reply:
-                        NonInputExecution(reply)
+                                elif "day" in reply:
+                                    NonInputExecution(reply)
 
-                    elif "screenshot" in reply:
-                        NonInputExecution(reply)
+                                elif "screenshot" in reply:
+                                    NonInputExecution(reply)
 
-                    elif "who" in reply:
-                        NonInputExecution(reply)
+                                elif "who" in reply:
+                                    NonInputExecution(reply)
 
-                    elif "history" in reply:
-                        NonInputExecution(reply)
+                                elif "history" in reply:
+                                    NonInputExecution(reply)
 
-                    elif "study" in reply:
-                        NonInputExecution(reply)
+                                elif "study" in reply:
+                                    NonInputExecution(reply)
 
-                    elif "light on" in reply:
-                        NonInputExecution(reply)
+                                elif "light on" in reply:
+                                    NonInputExecution(reply)
 
-                    elif "light off" in reply:
-                        NonInputExecution(reply)
+                                elif "light off" in reply:
+                                    NonInputExecution(reply)
 
-                    elif "clear" in reply:
-                        NonInputExecution(reply)
+                                elif "clear" in reply:
+                                    NonInputExecution(reply)
 
-                    elif "study" in reply:
-                        NonInputExecution(reply)
+                                elif "study" in reply:
+                                    NonInputExecution(reply)
 
-                    elif "yestarday"in reply:
-                        NonInputExecution(reply)
+                                elif "yestarday"in reply:
+                                    NonInputExecution(reply)
 
-                    elif "remember"in reply:
-                        NonInputExecution(reply)
+                                elif "remember"in reply:
+                                    NonInputExecution(reply)
 
-                    elif "System_On" in reply:
-                        NonInputExecution(reply)
+                                elif "System_On" in reply:
+                                    NonInputExecution(reply)
 
-                    elif "System_Off" in reply:
-                        NonInputExecution(reply)
+                                elif "System_Off" in reply:
+                                    NonInputExecution(reply)
 
-                    elif "Controls_GUI" in reply:
-                        NonInputExecution(reply)
+                                elif "Controls_GUI" in reply:
+                                    NonInputExecution(reply)
 
-                    elif "Google" in reply:
-                        NonInputExecution(reply)
+                                elif "Google" in reply:
+                                    NonInputExecution(reply)
 
-                    elif "Minimize_Window" in reply:
-                        NonInputExecution(reply)
+                                elif "Minimize_Window" in reply:
+                                    NonInputExecution(reply)
 
-                    elif "Switch_Tab" in reply:
-                        NonInputExecution(reply)
+                                elif "Switch_Tab" in reply:
+                                    NonInputExecution(reply)
 
-                    elif "Maximize_Window"in reply:
-                        NonInputExecution(reply)
+                                elif "Maximize_Window"in reply:
+                                    NonInputExecution(reply)
 
-                    elif "Todo_List" in reply:
-                        NonInputExecution(reply)
-                    
-                    else:
-                        print(reply)
+                                elif "Todo_List" in reply:
+                                    NonInputExecution(reply)
 
+                                elif "Cpu_Temp" in reply:
+                                    NonInputExecution(reply)
+
+                                elif "Weather" in reply:
+                                    NonInputExecution(reply)
+
+                                elif "Insta" in reply:
+                                    NonInputExecution(reply)
+                                
+                                else:
+                                    print(reply)
+        except:
+            print("Try again")
 
 while True:
     r = sr.Recognizer()
+
     with sr.Microphone() as source:
         GPIO.setwarnings(False)
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(27, GPIO.OUT)
         GPIO.output(27, True)
-        print("Listening ._._._._._")
-        r.pause_threshold = 1
-        audio = r.listen(source,0,2)
+        print("Listening././././.")
+        r.adjust_for_ambient_noise(source)
+        audio = r.listen(source)
 
     try:
-        print("Recognizing....")
-        query = r.recognize_google(audio)
-        print(f"You Said : {query}")
-        if "wake up" in query or "Jarvis wake up" in query or "hey jarvis" in query or "jarvis" in query:
+        GPIO.setwarnings(False)
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(27, GPIO.OUT)
+        GPIO.output(27, False)
+        print("Recognizing././././.")
+        sentence= r.recognize_google(audio)
+        print(f"You Said : {sentence}")
+        if "wake up" in sentence or "jarvis wake up" in sentence or "Jarvis wake up" in sentence or "wakeup" in sentence or "wake up Jarvis" in sentence or "Jarvis" in sentence:
             GPIO.setwarnings(False)
             GPIO.setmode(GPIO.BCM)
             GPIO.setup(27, GPIO.OUT)
             GPIO.output(27, False)
+            print("............. Jarvis is now in action ...............")
             Start()
-            Jarvis_online()
-            while True:
-                Main()
+            Main()
+        
     except:
-        print(".......")
+        print("..........")
+
 

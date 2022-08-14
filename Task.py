@@ -24,7 +24,11 @@ from Notifications.Notification import *
 import wikipedia as googlescrap
 import pywhatkit
 from subprocess import call
-
+from gpiozero import CPUTemperature
+from Listen.Listen_City import Listen_City
+import requests
+from bs4 import BeautifulSoup
+from google_speech import Speech
 
 def Time():
     t = time.strftime("%I:%M %p")
@@ -137,14 +141,14 @@ def relay_on():
 
     GPIO.setmode(GPIO.BCM)
 
-    GPIO.setup(17, GPIO.OUT)
+    GPIO.setup(18, GPIO.OUT)
 
-    GPIO.output(17, 0)
+    GPIO.output(18, 0)
 
     Jarvis_Light_On()
 
 def relay_off():
-    RELAY_PIN = 17
+    RELAY_PIN = 18
 
     relay = gpiozero.OutputDevice(RELAY_PIN,active_high=False,initial_value=False)
 
@@ -158,7 +162,7 @@ def Clear():
 
 
 def Google():
-    webbrowser.open_new_tab("http://www.google.com")
+    os.system("chromium")
 
 
 def Search(query):
@@ -180,13 +184,13 @@ def Files():
 def System_On():
     GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BCM)
-    GPIO.setup(18, GPIO.OUT)
-    GPIO.output(18, 0)
+    GPIO.setup(17, GPIO.OUT)
+    GPIO.output(17, 0)
 
     Jarvis_System_Initiated()
 
 def System_Off():
-    RELAY_PIN = 18
+    RELAY_PIN = 17
     relay = gpiozero.OutputDevice(RELAY_PIN,active_high=False,initial_value=False)
     relay.off()
 
@@ -283,6 +287,29 @@ def Todo_List():
     from subprocess import call
     call(["python", "/home/atharva/Downloads/Jarvis/All GUI apps/todo.py"])
 
+def Cpu_Temp():
+    cpu = CPUTemperature()
+    print(f"The current temprature is : {cpu.temperature}")
+
+
+def Weather():
+    print("Which City : ")
+    city = Listen_City()
+    city = str(city)
+    r = requests.get(f"https://www.timeanddate.com/weather/india/{city}")
+    soup = BeautifulSoup(r.content, 'html.parser')
+    s = soup.find('div', class_='h2')
+    s1 = soup.find('div', class_='bk-focus__info')
+    table = s1.find('table', class_='table table--left table--inner-borders-rows')
+    tr = table.find_all("tr")
+    print(f"Temprature in {city.capitalize()} is : {s.text}")
+    print(f"{tr[3].text}")
+    print(f"{tr[4].text}")
+    print(f"{tr[5].text}")
+    print(f"{tr[6].text}")
+
+def Insta():
+    Insta()
 
 
 def NonInputExecution(query):
@@ -359,6 +386,9 @@ def NonInputExecution(query):
     elif "Todo_List" in query:
         Todo_List()
 
-    
+    elif "Cpu_Temp" in query:
+        Cpu_Temp()
 
+    elif "Weather" in query:
+        Weather()
 

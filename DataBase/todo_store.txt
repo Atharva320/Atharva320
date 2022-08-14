@@ -1,5 +1,0 @@
-1 2022-08-09 12:04 AM 1.Tommorow i am going to do multithreading in Jarvis
-2 2022-08-09 12:04 AM 2.Will Start the automation
-3 2022-08-09 12:05 AM 3.Make the Jarvis Faster
-4 2022-08-09 12:05 AM 4.Will Learn about linux
-5 2022-08-09 12:05 AM 5.And much more
