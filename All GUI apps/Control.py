@@ -16,11 +16,11 @@ class Ui_MainWindow(object):
         def Initiate(self):
                 GPIO.setwarnings(False)
                 GPIO.setmode(GPIO.BCM)
-                GPIO.setup(18, GPIO.OUT)
-                GPIO.output(18, 0)
+                GPIO.setup(17, GPIO.OUT)
+                GPIO.output(17, 0)
 
         def Deactivate(self):
-                RELAY_PIN = 18
+                RELAY_PIN = 17
                 relay = gpiozero.OutputDevice(RELAY_PIN,active_high=False,initial_value=False)
                 relay.off()
 
@@ -29,12 +29,12 @@ class Ui_MainWindow(object):
 
                 GPIO.setmode(GPIO.BCM)
 
-                GPIO.setup(17, GPIO.OUT)
+                GPIO.setup(18, GPIO.OUT)
 
-                GPIO.output(17, 0)
+                GPIO.output(18, 0)
 
         def Light_OFF(self):
-                RELAY_PIN = 17
+                RELAY_PIN = 18
 
                 relay = gpiozero.OutputDevice(RELAY_PIN,active_high=False,initial_value=False)
 

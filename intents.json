@@ -344,12 +344,51 @@
             ]
 
         }
+        
+        ,
 
+        {
+
+            "tag":"Cpu_Temp",
+            "patterns":["Jarvis what's the CPU temprature","what's the CPU temprature","CPU temprature","tell me the current CPU temprature","what is the CPU temprature","jarvis can you please tell me current CPU temprature","can you please tell me CPU temprature","give me CPU temprature stats","Jarvis tell me the current CPU temprature stats"
+            ],
+            "responses":["Cpu_Temp"
+
+            ]
+
+        }
+
+        ,
+
+        {
+
+            "tag":"Weather",
+            "patterns":["Jarvis whats the weather","whats the weather","weather","tell me the current weather"
+            ],
+            "responses":["Weather"
+
+            ]
+
+        }
+        ,
+
+        {
+
+            "tag":"Insta",
+            "patterns":["can you please open the Instagram","open Instagram","Instagram","initaite Instagram","launch Instagram","can you launch Instagram","hey jarvis can please open the Instagram for me","jarvis start Instagram","hey jarvis initiate Instagram","hi jarvis launch Instagram","activate the Instagram jarvis","jarvis can you please activate the Instagram","switch on the Instagram","turn on the Instagram","Instagram start","Instagram launch","insta","instagram"
+            ],
+            "responses":["Insta"
+
+            ]
+
+        }
         
 
         
 
-    
+        
+
+       
 
 
 
