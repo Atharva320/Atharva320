@@ -6,94 +6,94 @@ from prettytable import PrettyTable
 from time import sleep
 
 def AVE():
-    os.system("tree /home/atharva/Downloads/All_study/AVE")
+    os.system("tree /home/atharva/Downloads/Jarvis/All_study/AVE/")
     print("Enter which unit you would like to study : ")
     n = input()
     n = n.lower()
     if n == "unit 1" or n =="chapter 1" or n =="first unit" or n == "unit first":
-        os.system('for file in //home/atharva/Downloads/All_study/AVE/Unit_1/*.pdf; do open "${file}"; done')
+        os.system('for file in //home/atharva/Downloads/Jarvis/All_study/AVE/Unit_1/*.pdf; do open "${file}"; done')
         sleep(5)
 
     elif n == "unit 2" or n =="chapter 2" or n =="second unit" or n == "unit second":
-        os.system('for file in //home/atharva/Downloads/All_study/AVE/Unit_2/*.pdf; do open "${file}"; done')
+        os.system('for file in //home/atharva/Downloads/Jarvis/All_study/AVE/Unit_2/*.pdf; do open "${file}"; done')
         sleep(5)
 
     elif n == "unit 3" or n =="chapter 3" or n =="third unit" or n == "unit third":
-        os.system('for file in //home/atharva/Downloads/All_study/AVE/Unit_3/*.pdf; do open "${file}"; done')
+        os.system('for file in //home/atharva/Downloads/Jarvis/All_study/AVE/Unit_3/*.pdf; do open "${file}"; done')
         sleep(5)
 
     elif n == "unit 4" or n =="chapter 4" or n =="fourth unit" or n == "unit fourth":
-        os.system('for file in //home/atharva/Downloads/All_study/AVE/Unit_4/*.pdf; do open "${file}"; done')
+        os.system('for file in //home/atharva/Downloads/Jarvis/All_study/AVE/Unit_4/*.pdf; do open "${file}"; done')
         sleep(5)
 
     elif n == "unit 5" or n =="chapter 5" or n =="fifth unit" or n == "unit fifth":
-        os.system('for file in //home/atharva/Downloads/All_study/AVE/Unit_5/*.pdf; do open "${file}"; done')
+        os.system('for file in //home/atharva/Downloads/Jarvis/All_study/AVE/Unit_5/*.pdf; do open "${file}"; done')
         sleep(5)
 
     elif n == "unit 6" or n =="chapter 6" or n =="sixth unit" or n == "unit sixth":
-        os.system('for file in //home/atharva/Downloads/All_study/AVE/Unit_6/*.pdf; do open "${file}"; done')
+        os.system('for file in //home/atharva/Downloads/Jarvis/All_study/AVE/Unit_6/*.pdf; do open "${file}"; done')
         sleep(5)
 
     return n
 
 def EMS():
-    os.system("tree /home/atharva/Downloads/All_study/EMS")
+    os.system("tree /home/atharva/Downloads/Jarvis/All_study/EMS")
     print("Enter which unit you would like to study : ")
     n = input()
     n = n.lower()
     if n == "unit 1" or n =="chapter 1" or n =="first unit" or n == "unit first":
-        os.system('for file in //home/atharva/Downloads/All_study/EMS/Unit_1/*.pdf; do open "${file}"; done')
+        os.system('for file in //home/atharva/Downloads/Jarvis/All_study/EMS/Unit_1/*.pdf; do open "${file}"; done')
         sleep(5)
 
     elif n == "unit 2" or n =="chapter 2" or n =="second unit" or n == "unit second":
-        os.system('for file in //home/atharva/Downloads/All_study/EMS/Unit_2/*.pdf; do open "${file}"; done')
+        os.system('for file in //home/atharva/Downloads/Jarvis/All_study/EMS/Unit_2/*.pdf; do open "${file}"; done')
         sleep(5)
 
     elif n == "unit 3" or n =="chapter 3" or n =="third unit" or n == "unit third":
-        os.system('for file in //home/atharva/Downloads/All_study/EMS/Unit_3/*.pdf; do open "${file}"; done')
+        os.system('for file in //home/atharva/Downloads/Jarvis/All_study/EMS/Unit_3/*.pdf; do open "${file}"; done')
         sleep(5)
 
     elif n == "unit 4" or n =="chapter 4" or n =="fourth unit" or n == "unit fourth":
-        os.system('for file in //home/atharva/Downloads/All_study/EMS/Unit_4/*.pdf; do open "${file}"; done')
+        os.system('for file in //home/atharva/Downloads/Jarvis/All_study/EMS/Unit_4/*.pdf; do open "${file}"; done')
         sleep(5)
 
     elif n == "unit 5" or n =="chapter 5" or n =="fifth unit" or n == "unit fifth":
-        os.system('for file in //home/atharva/Downloads/All_study/EMS/Unit_5/*.pdf; do open "${file}"; done')
+        os.system('for file in //home/atharva/Downloads/Jarvis/All_study/EMS/Unit_5/*.pdf; do open "${file}"; done')
         sleep(5)
 
     elif n == "unit 6" or n =="chapter 6" or n =="sixth unit" or n == "unit sixth":
-        os.system('for file in //home/atharva/Downloads/All_study/EMS/Unit_6/*.pdf; do open "${file}"; done')
+        os.system('for file in //home/atharva/Downloads/Jarvis/All_study/EMS/Unit_6/*.pdf; do open "${file}"; done')
         sleep(5)
 
     return n
 
 def CSM():
-    os.system("tree /home/atharva/Downloads/All_study/CSM")
+    os.system("tree /home/atharva/Downloads/Jarvis/All_study/CSM")
     print("Enter which unit you would like to study : ")
     n = input()
     n = n.lower()
     if n == "unit 1" or n =="chapter 1" or n =="first unit" or n == "unit first":
-        os.system('for file in //home/atharva/Downloads/All_study/CSM/Unit_1/*.pdf; do open "${file}"; done')
+        os.system('for file in //home/atharva/Downloads/Jarvis/All_study/CSM/Unit_1/*.pdf; do open "${file}"; done')
         sleep(5)
 
     elif n == "unit 2" or n =="chapter 2" or n =="second unit" or n == "unit second":
-        os.system('for file in //home/atharva/Downloads/All_study/CSM/Unit_2/*.pdf; do open "${file}"; done')
+        os.system('for file in //home/atharva/Downloads/Jarvis/All_study/CSM/Unit_2/*.pdf; do open "${file}"; done')
         sleep(5)
 
     elif n == "unit 3" or n =="chapter 3" or n =="third unit" or n == "unit third":
-        os.system('for file in //home/atharva/Downloads/All_study/CSM/Unit_3/*.pdf; do open "${file}"; done')
+        os.system('for file in //home/atharva/Downloads/Jarvis/All_study/CSM/Unit_3/*.pdf; do open "${file}"; done')
         sleep(5)
 
     elif n == "unit 4" or n =="chapter 4" or n =="fourth unit" or n == "unit fourth":
-        os.system('for file in //home/atharva/Downloads/All_study/CSM/Unit_4/*.pdf; do open "${file}"; done')
+        os.system('for file in //home/atharva/Downloads/Jarvis/All_study/CSM/Unit_4/*.pdf; do open "${file}"; done')
         sleep(5)
 
     elif n == "unit 5" or n =="chapter 5" or n =="fifth unit" or n == "unit fifth":
-        os.system('for file in //home/atharva/Downloads/All_study/CSM/Unit_5/*.pdf; do open "${file}"; done')
+        os.system('for file in //home/atharva/Downloads/Jarvis/All_study/CSM/Unit_5/*.pdf; do open "${file}"; done')
         sleep(5)
 
     elif n == "unit 6" or n =="chapter 6" or n =="sixth unit" or n == "unit sixth":
-        os.system('for file in //home/atharva/Downloads/All_study/CSM/Unit_6/*.pdf; do open "${file}"; done')
+        os.system('for file in //home/atharva/Downloads/Jarvis/All_study/CSM/Unit_6/*.pdf; do open "${file}"; done')
         sleep(5)
 
     return n
@@ -101,32 +101,32 @@ def CSM():
 
 
 def FOC():
-    os.system("tree /home/atharva/Downloads/All_study/FOC")
+    os.system("tree /home/atharva/Downloads/Jarvis/All_study/FOC")
     print("Enter which unit you would like to study : ")
     n = input()
     n = n.lower()
     if n == "unit 1" or n =="chapter 1" or n =="first unit" or n == "unit first":
-        os.system('for file in //home/atharva/Downloads/All_study/FOC/Unit_1/*.pdf; do open "${file}"; done')
+        os.system('for file in //home/atharva/Downloads/Jarvis/All_study/FOC/Unit_1/*.pdf; do open "${file}"; done')
         sleep(5)
 
     elif n == "unit 2" or n =="chapter 2" or n =="second unit" or n == "unit second":
-        os.system('for file in //home/atharva/Downloads/All_study/FOC/Unit_2/*.pdf; do open "${file}"; done')
+        os.system('for file in //home/atharva/Downloads/Jarvis/All_study/FOC/Unit_2/*.pdf; do open "${file}"; done')
         sleep(5)
 
     elif n == "unit 3" or n =="chapter 3" or n =="third unit" or n == "unit third":
-        os.system('for file in //home/atharva/Downloads/All_study/FOC/Unit_3/*.pdf; do open "${file}"; done')
+        os.system('for file in //home/atharva/Downloads/Jarvis/All_study/FOC/Unit_3/*.pdf; do open "${file}"; done')
         sleep(5)
 
     elif n == "unit 4" or n =="chapter 4" or n =="fourth unit" or n == "unit fourth":
-        os.system('for file in //home/atharva/Downloads/All_study/FOC/Unit_4/*.pdf; do open "${file}"; done')
+        os.system('for file in //home/atharva/Downloads/Jarvis/All_study/FOC/Unit_4/*.pdf; do open "${file}"; done')
         sleep(5)
 
     elif n == "unit 5" or n =="chapter 5" or n =="fifth unit" or n == "unit fifth":
-        os.system('for file in //home/atharva/Downloads/All_study/FOC/Unit_5/*.pdf; do open "${file}"; done')
+        os.system('for file in //home/atharva/Downloads/Jarvis/All_study/FOC/Unit_5/*.pdf; do open "${file}"; done')
         sleep(5)
 
     elif n == "unit 6" or n =="chapter 6" or n =="sixth unit" or n == "unit sixth":
-        os.system('for file in //home/atharva/Downloads/All_study/FOC/Unit_6/*.pdf; do open "${file}"; done')
+        os.system('for file in //home/atharva/Downloads/Jarvis/All_study/FOC/Unit_6/*.pdf; do open "${file}"; done')
         sleep(5)
 
     return n
@@ -233,7 +233,7 @@ def Remember():
 
 
 
-
+Yestarday()
 
 
 
